@@ -34,14 +34,13 @@ public class VentaController {
         ventaService.saveVenta(venta);
         return ResponseEntity.created(location).body(venta);
     }
-
     @PutMapping("/{idVenta}")
     @Operation(summary = "Actualizar una venta existente", description = "Actualiza los detalles de una venta existente")
     public ResponseEntity<Venta> actualizarVenta(@Valid @PathVariable Long idVenta, @RequestBody Venta venta) throws VentaNotFoundException {
         Venta ventaActualizada = ventaService.updateVenta(idVenta, venta);
         return ResponseEntity.ok(ventaActualizada);
     }
-
+    /*gojojo*/
     @GetMapping
     @Operation(summary = "Obtener todas las ventas", description = "Devuelve una lista de todas las ventas")
     public ResponseEntity<List<Venta>> getVentas(){

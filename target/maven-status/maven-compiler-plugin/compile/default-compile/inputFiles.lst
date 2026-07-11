@@ -1,0 +1,10 @@
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/SpringbootApiRestApplication.java
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/config/OpenApiConfing.java
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/controller/VentaController.java
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/exceptions/RestResponseEntityExceptionHandler.java
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/exceptions/VentaNotFoundException.java
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/exceptions/dto/ErrorMessage.java
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/persistence/entity/Venta.java
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/persistence/repository/VentaRepository.java
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/persistence/services/VentaService.java
+/Users/maximiliano/Documents/eva3/venta/src/main/java/com/citt/persistence/services/VentaServiceImpl.java
