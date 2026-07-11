@@ -40,7 +40,7 @@ public class VentaController {
         Venta ventaActualizada = ventaService.updateVenta(idVenta, venta);
         return ResponseEntity.ok(ventaActualizada);
     }
-    /*gojojo*/
+    /*gojojo comentario*/
     @GetMapping
     @Operation(summary = "Obtener todas las ventas", description = "Devuelve una lista de todas las ventas")
     public ResponseEntity<List<Venta>> getVentas(){
