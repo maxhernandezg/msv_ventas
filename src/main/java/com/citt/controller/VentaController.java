@@ -26,13 +26,15 @@ public class VentaController {
     @Operation(summary = "Crear una nueva venta", description = "Crea una nueva venta en el sistema")
     @PostMapping
     public ResponseEntity<Venta> crearVenta(@Valid @RequestBody Venta venta){
+        // El ID lo genera la base de datos al persistir, por lo que el
+        // encabezado Location debe construirse DESPUES de guardar.
+        Venta ventaCreada = ventaService.saveVenta(venta);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{idVenta}")
-                .buildAndExpand(venta.getIdVenta())
+                .buildAndExpand(ventaCreada.getIdVenta())
                 .toUri();
-        ventaService.saveVenta(venta);
-        return ResponseEntity.created(location).body(venta);
+        return ResponseEntity.created(location).body(ventaCreada);
     }
     @PutMapping("/{idVenta}")
     @Operation(summary = "Actualizar una venta existente", description = "Actualiza los detalles de una venta existente")
