@@ -1,4 +1,10 @@
-name: CI/CD - venta (ECR + EKS)
+# ---------------------------------------------------------------------------
+# Entrega Continua (CD) del microservicio venta.
+# Se ejecuta cuando un cambio ya revisado llega a main (merge de un PR):
+# construye la imagen, la publica en Amazon ECR y actualiza el Deployment
+# del cluster EKS. Es la etapa posterior al workflow de CI (ci.yml).
+# ---------------------------------------------------------------------------
+name: CD - venta (ECR + EKS)
 
 # Se dispara con cada push a main, o manualmente desde la pestaña Actions
 on:
@@ -19,6 +25,11 @@ jobs:
   build-push-deploy:
     name: Build → Push ECR → Deploy EKS
     runs-on: ubuntu-latest
+    # El despliegue solo corre si la variable de repositorio DEPLOY_EKS vale 'true'
+    # (Settings → Variables → Actions). Las credenciales del AWS Academy Learner
+    # Lab son temporales: con esta bandera el pipeline no falla cuando el
+    # laboratorio esta apagado, y se reactiva cambiando la variable a 'true'.
+    if: ${{ vars.DEPLOY_EKS == 'true' }}
     steps:
       - name: Clonar repositorio
         uses: actions/checkout@v4
